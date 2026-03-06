@@ -6,6 +6,6 @@ type AppProps = {
 
 export default function App({ offersCount } : AppProps) {
   return (
-    <MainPage offersCount = {offersCount} />
+    <MainPage offersCount={offersCount}/>
   );
 }
