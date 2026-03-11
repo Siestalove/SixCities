@@ -2,7 +2,7 @@ export default function NoFoundPage() {
   return (
     <div className="page page--gray page--main">
       <main>
-        <h1>Страница не найдена</h1>
+        <p style={{ paddingLeft: '620px', paddingTop: '320px'}}>Страница не найдена</p>
       </main>
     </div>
   );

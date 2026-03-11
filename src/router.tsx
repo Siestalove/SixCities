@@ -5,7 +5,6 @@ import LoginPage from './pages/LoginPage';
 import FavoritesPage from './pages/FavoritesPage';
 import OfferPage from './pages/OfferPage';
 import NoFoundPage from './pages/NoFoundPage';
-import ErrorPage from './pages/ErrorPage';
 import App from './App';
 import PrivateRoute from './private-route';
 
@@ -17,7 +16,7 @@ export const createAppRouter = (offersCount: number) => createBrowserRouter([
   {
     path: AppRoute.Main,
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <NoFoundPage />,
     children: [
       {
         index: true,
@@ -35,10 +34,6 @@ export const createAppRouter = (offersCount: number) => createBrowserRouter([
       {
         path: AppRoute.Offer,
         element: <OfferPage />,
-      },
-      {
-        path: '*',
-        element: <NoFoundPage />,
       },
     ],
   },
