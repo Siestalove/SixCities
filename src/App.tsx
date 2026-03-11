@@ -1,11 +1,11 @@
-import MainPage from './pages/MainPage';
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
 
-type AppProps = {
-  offersCount: number;
-}
-
-export default function App({ offersCount } : AppProps) {
-  return (
-    <MainPage offersCount={offersCount}/>
+export default function App() {
+  return(
+    <>
+      <Header />
+      <Outlet />
+    </>
   );
 }
