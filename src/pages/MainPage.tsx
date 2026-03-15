@@ -1,10 +1,20 @@
-import Card from '../components/Card.tsx';
+import { OffersResult } from '../types/offers';
+import OffersList from '../components/OffersList';
+import { useState } from 'react';
 
 type MainPageProps = {
   offersCount: number;
+  offers: OffersResult[];
 }
 
-export default function MainPage({ offersCount } : MainPageProps) {
+export default function MainPage({ offersCount, offers } : MainPageProps) {
+
+  const [activeOfferId, setActiveOfferId] = useState('');
+
+  const handleOfferHover = (id: string) => {
+    setActiveOfferId(id);
+  };
+
   return (
     <div className="page page--gray page--main">
       <main className="page__main page__main--index">
@@ -66,15 +76,13 @@ export default function MainPage({ offersCount } : MainPageProps) {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
+                <OffersList offers={offers} onOfferHover={handleOfferHover} />
               </div>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                {activeOfferId && <div className="visually-hidden">Selected offer: {activeOfferId}</div>}
+              </section>
             </div>
           </div>
         </div>

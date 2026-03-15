@@ -17,7 +17,9 @@ export default function Header() {
                   <div className="header__avatar-wrapper user__avatar-wrapper">
                   </div>
                   <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  <span className="header__favorite-count">3</span>
+                  <Link className="header__logo-link header__logo-link--active" to="/favorite">
+                    <span className="header__favorite-count">3</span>
+                  </Link>
                 </a>
               </li>
               <li className="header__nav-item">
