@@ -1,21 +1,21 @@
+export type location = {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+}
+
+export type city = {
+  name: string;
+  location: location;
+}
+
 export type baseOffer = {
   id: string;
   title: string;
   type: string;
   price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
+  city: city;
+  location: location;
   isFavorite: boolean;
   isPremium: boolean;
   rating: number;

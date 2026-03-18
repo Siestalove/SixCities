@@ -1,6 +1,7 @@
 import { OffersResult } from '../types/offers';
 import OffersList from '../components/OffersList';
 import { useState } from 'react';
+import Map from '../components/Map';
 
 type MainPageProps = {
   offersCount: number;
@@ -10,6 +11,14 @@ type MainPageProps = {
 export default function MainPage({ offersCount, offers } : MainPageProps) {
 
   const [activeOfferId, setActiveOfferId] = useState('');
+
+  const currentCity = offers[0]?.city;
+
+  const points = offers.map((offer) => ({
+    id: offer.id,
+    latitude: offer.location.latitude,
+    longitude: offer.location.longitude,
+  }));
 
   const handleOfferHover = (id: string) => {
     setActiveOfferId(id);
@@ -81,7 +90,11 @@ export default function MainPage({ offersCount, offers } : MainPageProps) {
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
-                {activeOfferId && <div className="visually-hidden">Selected offer: {activeOfferId}</div>}
+                <Map
+                  city={currentCity}
+                  points={points}
+                  selectedPointId={activeOfferId}
+                />
               </section>
             </div>
           </div>

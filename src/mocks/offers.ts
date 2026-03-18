@@ -1,5 +1,13 @@
-import { OfferForId } from '../types/offers';
-import { OffersResult } from '../types/offers';
+import { OfferForId, OffersResult, city } from '../types/offers';
+
+const amsterdam: city = {
+  name: 'Amsterdam',
+  location: {
+    latitude: 52.37914938496378,
+    longitude: 4.900377537499948,
+    zoom: 11
+  }
+};
 
 export const mockOffers: OffersResult[] = [
   {
@@ -7,17 +15,10 @@ export const mockOffers: OffersResult[] = [
     title: 'Beautiful & luxurious studio at great location',
     type: 'apartment',
     price: 120,
-    city: {
-      name: 'Amsterdam',
-      location: {
-        latitude: 52.35514938496378,
-        longitude: 4.673877537499948,
-        zoom: 8
-      }
-    },
+    city: amsterdam,
     location: {
-      latitude: 52.35514938496378,
-      longitude: 4.673877537499948,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: false,
@@ -30,17 +31,10 @@ export const mockOffers: OffersResult[] = [
     title: 'Cozy wooden house with fireplace',
     type: 'house',
     price: 85,
-    city: {
-      name: 'Hamburg',
-      location: {
-        latitude: 53.550341,
-        longitude: 10.000654,
-        zoom: 8
-      }
-    },
+    city: amsterdam,
     location: {
-      latitude: 53.550341,
-      longitude: 10.000654,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 8
     },
     isFavorite: true,
@@ -53,17 +47,10 @@ export const mockOffers: OffersResult[] = [
     title: 'Modern apartment in city center',
     type: 'apartment',
     price: 150,
-    city: {
-      name: 'Paris',
-      location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
-        zoom: 8
-      }
-    },
+    city: amsterdam,
     location: {
-      latitude: 48.85661,
-      longitude: 2.351499,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 8
     },
     isFavorite: false,
@@ -76,17 +63,10 @@ export const mockOffers: OffersResult[] = [
     title: 'Luxury penthouse with terrace',
     type: 'hotel',
     price: 320,
-    city: {
-      name: 'Cologne',
-      location: {
-        latitude: 50.938361,
-        longitude: 6.959974,
-        zoom: 8
-      }
-    },
+    city: amsterdam,
     location: {
-      latitude: 50.938361,
-      longitude: 6.959974,
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
       zoom: 8
     },
     isFavorite: true,
