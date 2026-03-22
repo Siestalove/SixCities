@@ -9,7 +9,7 @@ import App from './App';
 import PrivateRoute from './private-route';
 import { OffersResult } from './types/offers';
 
-export const createAppRouter = (offersCount: number, offers: OffersResult[]) => createBrowserRouter([
+export const createAppRouter = (offers: OffersResult[]) => createBrowserRouter([
   {
     path: AppRoute.Login,
     element: <LoginPage />,
@@ -21,7 +21,7 @@ export const createAppRouter = (offersCount: number, offers: OffersResult[]) => 
     children: [
       {
         index: true,
-        element: <MainPage offersCount={offersCount} offers={offers} />,
+        element: <MainPage offers={offers} />,
       },
       {
         path: AppRoute.Favorite,

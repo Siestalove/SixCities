@@ -20,8 +20,12 @@ export default function OffersList({ offers, onOfferHover, block }: OffersListPr
     }
   };
 
+  const listClassName = block === 'cities'
+    ? 'cities__places-list places__list tabs__content'
+    : 'near-places__list places__list';
+
   return (
-    <div className={`${block}__list places__list`}>
+    <div className={listClassName}>
       {offers.map((offer) => (
         <Card
           key={offer.id}

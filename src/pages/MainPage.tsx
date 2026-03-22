@@ -4,11 +4,10 @@ import { useState } from 'react';
 import Map from '../components/Map';
 
 type MainPageProps = {
-  offersCount: number;
   offers: OffersResult[];
 }
 
-export default function MainPage({ offersCount, offers } : MainPageProps) {
+export default function MainPage({ offers } : MainPageProps) {
 
   const [activeOfferId, setActiveOfferId] = useState('');
 
@@ -23,6 +22,8 @@ export default function MainPage({ offersCount, offers } : MainPageProps) {
   const handleOfferHover = (id: string) => {
     setActiveOfferId(id);
   };
+
+  const offersLength = offers.length;
 
   return (
     <div className="page page--gray page--main">
@@ -68,7 +69,7 @@ export default function MainPage({ offersCount, offers } : MainPageProps) {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{offersLength} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -84,9 +85,7 @@ export default function MainPage({ offersCount, offers } : MainPageProps) {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <OffersList offers={offers} onOfferHover={handleOfferHover} />
-              </div>
+              <OffersList offers={offers} onOfferHover={handleOfferHover} block="cities" />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">
