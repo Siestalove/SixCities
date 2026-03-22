@@ -1,6 +1,6 @@
-import { Review } from '../types/reviews';
+import { ReviewType } from '../types/reviews';
 
-export const mockReviews: Review[] = [
+export const mockReviews: ReviewType[] = [
   {
     id: 'b67ddfd5-b953-4a30-8c8d-bd083cd6b62a',
     date: '2024-04-01T12:00:00.000Z',

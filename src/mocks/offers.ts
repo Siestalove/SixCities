@@ -222,3 +222,54 @@ export const mocksOffersForId: OfferForId[] = [
     maxAdults: 5
   }
 ];
+
+export const mockNearbyOffers: OffersResult[] = [
+  {
+    id: 'nearby-1',
+    title: 'Quiet cozy house and picturesque that hides behind a a river',
+    type: 'house',
+    price: 132,
+    city: amsterdam,
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.2,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/15.jpg'
+  },
+  {
+    id: 'nearby-2',
+    title: 'Canal View Prinsengracht',
+    type: 'apartment',
+    price: 80,
+    city: amsterdam,
+    location: {
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 3.8,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/16.jpg'
+  },
+  {
+    id: 'nearby-3',
+    title: 'Nice, cozy, warm big bed apartment',
+    type: 'apartment',
+    price: 180,
+    city: amsterdam,
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4.9,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/17.jpg'
+  }
+];

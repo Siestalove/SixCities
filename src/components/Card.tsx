@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 type CardProps = {
   offer: OffersResult;
-  onMouseEnter: (id: string) => void;
-  onMouseLeave: () => void;
+  onMouseEnter?: (id: string) => void;
+  onMouseLeave?: () => void;
+  block: 'cities' | 'near-places';
 }
 
-export default function Card({ offer, onMouseEnter, onMouseLeave }: CardProps) {
+export default function Card({ offer, onMouseEnter, onMouseLeave, block }: CardProps) {
   const { id, title, type, price, rating, isFavorite, isPremium, previewImage } = offer;
 
   const handleMouseEnter = () => {
@@ -23,13 +24,13 @@ export default function Card({ offer, onMouseEnter, onMouseLeave }: CardProps) {
   };
 
   return(
-    <article className="cities__card place-card" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <article className={`${block}__card place-card`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       )}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${block}__image-wrapper place-card__image-wrapper`}>
         <img className="place-card__image" src={previewImage} width="260" height="200" alt={title} />
       </div>
       <div className="place-card__info">
