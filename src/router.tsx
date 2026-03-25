@@ -7,9 +7,8 @@ import OfferPage from './pages/OfferPage';
 import NoFoundPage from './pages/NoFoundPage';
 import App from './App';
 import PrivateRoute from './private-route';
-import { OffersResult } from './types/offers';
 
-export const createAppRouter = (offers: OffersResult[]) => createBrowserRouter([
+export const createAppRouter = () => createBrowserRouter([
   {
     path: AppRoute.Login,
     element: <LoginPage />,
@@ -21,7 +20,7 @@ export const createAppRouter = (offers: OffersResult[]) => createBrowserRouter([
     children: [
       {
         index: true,
-        element: <MainPage offers={offers} />,
+        element: <MainPage/>,
       },
       {
         path: AppRoute.Favorite,
@@ -29,7 +28,7 @@ export const createAppRouter = (offers: OffersResult[]) => createBrowserRouter([
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <FavoritesPage favorites={offers} />
+              <FavoritesPage />
             </PrivateRoute>
       },
       {

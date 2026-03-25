@@ -9,6 +9,51 @@ const amsterdam: city = {
   }
 };
 
+const paris: city = {
+  name: 'Paris',
+  location: {
+    latitude: 48.856614,
+    longitude: 2.352222,
+    zoom: 11
+  }
+};
+
+const cologne: city = {
+  name: 'Cologne',
+  location: {
+    latitude: 50.937531,
+    longitude: 6.9602786,
+    zoom: 11
+  }
+};
+
+const brussels: city = {
+  name: 'Brussels',
+  location: {
+    latitude: 50.8503463,
+    longitude: 4.3517211,
+    zoom: 11
+  }
+};
+
+const hamburg: city = {
+  name: 'Hamburg',
+  location: {
+    latitude: 53.5510846,
+    longitude: 9.9936819,
+    zoom: 11
+  }
+};
+
+const dusseldorf: city = {
+  name: 'Dusseldorf',
+  location: {
+    latitude: 51.2277411,
+    longitude: 6.7734556,
+    zoom: 11
+  }
+};
+
 export const mockOffers: OffersResult[] = [
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
@@ -27,52 +72,84 @@ export const mockOffers: OffersResult[] = [
     previewImage: 'https://14.design.htmlacademy.pro/static/hotel/1.jpg'
   },
   {
-    id: '7bf7f822-d39e-5232-93ef-f1b573a38f11',
-    title: 'Cozy wooden house with fireplace',
-    type: 'house',
-    price: 85,
-    city: amsterdam,
+    id: 'paris-001',
+    title: 'Romantic studio near Eiffel Tower',
+    type: 'apartment',
+    price: 210,
+    city: paris,
     location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198,
+      latitude: 48.858844,
+      longitude: 2.294351,
       zoom: 8
     },
     isFavorite: true,
     isPremium: true,
-    rating: 4.8,
-    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/2.jpg'
+    rating: 4.9,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/5.jpg'
   },
   {
-    id: '8cf8f933-e40a-6343-04f0-g2c684b49f22',
-    title: 'Modern apartment in city center',
+    id: 'cologne-001',
+    title: 'Modern loft near Cologne Cathedral',
     type: 'apartment',
-    price: 150,
-    city: amsterdam,
+    price: 95,
+    city: cologne,
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.929309666406198,
+      latitude: 50.941278,
+      longitude: 6.958281,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4.3,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/6.jpg'
+  },
+  {
+    id: 'brussels-001',
+    title: 'Cozy apartment in Grand Place area',
+    type: 'house',
+    price: 140,
+    city: brussels,
+    location: {
+      latitude: 50.846557,
+      longitude: 4.352697,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.7,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/7.jpg'
+  },
+  {
+    id: 'hamburg-001',
+    title: 'Stylish flat with harbor view',
+    type: 'hotel',
+    price: 175,
+    city: hamburg,
+    location: {
+      latitude: 53.547543,
+      longitude: 9.982128,
       zoom: 8
     },
     isFavorite: false,
     isPremium: true,
-    rating: 4.5,
-    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/3.jpg'
+    rating: 4.6,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/8.jpg'
   },
   {
-    id: '9df9f044-f51b-7454-15g0-h3d795c60f33',
-    title: 'Luxury penthouse with terrace',
-    type: 'hotel',
-    price: 320,
-    city: amsterdam,
+    id: 'dusseldorf-001',
+    title: 'Design apartment in Medienhafen',
+    type: 'apartment',
+    price: 110,
+    city: dusseldorf,
     location: {
-      latitude: 52.3809553943508,
-      longitude: 4.939309666406198,
+      latitude: 51.212134,
+      longitude: 6.764728,
       zoom: 8
     },
     isFavorite: true,
-    isPremium: true,
-    rating: 5,
-    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/4.jpg'
+    isPremium: false,
+    rating: 4.4,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/9.jpg'
   }
 ];
 
@@ -114,118 +191,190 @@ export const mocksOffersForId: OfferForId[] = [
     maxAdults: 4
   },
   {
-    id: '7bf7f822-d39e-5232-93ef-f1b573a38f11',
-    title: 'Cozy wooden house with fireplace',
-    type: 'house',
-    price: 85,
+    id: 'paris-001',
+    title: 'Romantic studio near Eiffel Tower',
+    type: 'apartment',
+    price: 210,
     city: {
-      name: 'Hamburg',
+      name: 'Paris',
       location: {
-        latitude: 53.550341,
-        longitude: 10.000654,
+        latitude: 48.858844,
+        longitude: 2.294351,
         zoom: 8
       }
     },
     location: {
-      latitude: 53.550341,
-      longitude: 10.000654,
+      latitude: 48.858844,
+      longitude: 2.294351,
       zoom: 8
     },
     isFavorite: true,
     isPremium: true,
-    rating: 4.8,
-    description: 'Beautiful wooden house with authentic fireplace, located in quiet area near the forest. Perfect for family holidays.',
-    bedrooms: 2,
-    goods: ['Fireplace', 'Wi-Fi', 'Parking', 'Garden', 'BBQ'],
-    host: {
-      name: 'Emma Smith',
-      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-2.jpg',
-      isPro: true
-    },
-    images: [
-      'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/2.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/2.jpg'
-    ],
-    maxAdults: 3
-  },
-  {
-    id: '8cf8f933-e40a-6343-04f0-g2c684b49f22',
-    title: 'Modern apartment in city center',
-    type: 'apartment',
-    price: 150,
-    city: {
-      name: 'Paris',
-      location: {
-        latitude: 48.85661,
-        longitude: 2.351499,
-        zoom: 8
-      }
-    },
-    location: {
-      latitude: 48.85661,
-      longitude: 2.351499,
-      zoom: 8
-    },
-    isFavorite: false,
-    isPremium: true,
-    rating: 4.5,
-    description: 'Stylish apartment in the heart of Paris, close to all main attractions. Recently renovated with modern design.',
+    rating: 4.9,
+    description: 'Charming studio just steps away from the Eiffel Tower. Enjoy breathtaking views and authentic Parisian atmosphere.',
     bedrooms: 1,
-    goods: ['Wi-Fi', 'Air conditioning', 'Coffee machine', 'Dishwasher', 'Elevator'],
+    goods: ['Wi-Fi', 'Air conditioning', 'Coffee machine', 'Elevator', 'Balcony'],
     host: {
-      name: 'Jean Dupont',
-      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-3.jpg',
+      name: 'Isabelle Moreau',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-5.jpg',
       isPro: true
     },
     images: [
-      'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/3.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/3.jpg'
+      'https://14.design.htmlacademy.pro/static/hotel/5.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/5-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/5-2.jpg'
     ],
     maxAdults: 2
   },
   {
-    id: '9df9f044-f51b-7454-15g0-h3d795c60f33',
-    title: 'Luxury penthouse with terrace',
-    type: 'hotel',
-    price: 320,
+    id: 'cologne-001',
+    title: 'Modern loft near Cologne Cathedral',
+    type: 'apartment',
+    price: 95,
     city: {
       name: 'Cologne',
       location: {
-        latitude: 50.938361,
-        longitude: 6.959974,
+        latitude: 50.941278,
+        longitude: 6.958281,
         zoom: 8
       }
     },
     location: {
-      latitude: 50.938361,
-      longitude: 6.959974,
+      latitude: 50.941278,
+      longitude: 6.958281,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4.3,
+    description: 'Contemporary loft in the heart of Cologne, within walking distance to the Cathedral and Rhine River.',
+    bedrooms: 2,
+    goods: ['Wi-Fi', 'Kitchen', 'Heating', 'Smart TV', 'Dishwasher'],
+    host: {
+      name: 'Lukas Weber',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-6.jpg',
+      isPro: false
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/6.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/6-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/6-2.jpg'
+    ],
+    maxAdults: 3
+  },
+  {
+    id: 'brussels-001',
+    title: 'Cozy apartment in Grand Place area',
+    type: 'house',
+    price: 140,
+    city: {
+      name: 'Brussels',
+      location: {
+        latitude: 50.846557,
+        longitude: 4.352697,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 50.846557,
+      longitude: 4.352697,
       zoom: 8
     },
     isFavorite: true,
     isPremium: true,
-    rating: 5,
-    description: 'Amazing penthouse with spacious terrace overlooking the city. Includes access to spa and gym.',
+    rating: 4.7,
+    description: 'Beautiful traditional house just minutes from Grand Place. Experience the charm of Brussels in this cozy retreat.',
     bedrooms: 2,
-    goods: ['Terrace', 'Jacuzzi', 'Wi-Fi', 'Parking', 'Room service', 'Mini-bar', 'Safe'],
+    goods: ['Wi-Fi', 'Fireplace', 'Garden', 'Parking', 'BBQ', 'Heating'],
     host: {
-      name: 'Michael Brown',
-      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-4.jpg',
+      name: 'Sophie Dubois',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-7.jpg',
       isPro: true
     },
     images: [
-      'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/4.jpg',
-      'https://14.design.htmlacademy.pro/static/hotel/4.jpg'
+      'https://14.design.htmlacademy.pro/static/hotel/7.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/7-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/7-2.jpg'
     ],
-    maxAdults: 5
+    maxAdults: 4
+  },
+  {
+    id: 'hamburg-001',
+    title: 'Stylish flat with harbor view',
+    type: 'hotel',
+    price: 175,
+    city: {
+      name: 'Hamburg',
+      location: {
+        latitude: 53.547543,
+        longitude: 9.982128,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 53.547543,
+      longitude: 9.982128,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.6,
+    description: 'Modern hotel suite with stunning views of Hamburg harbor. Includes access to spa and fitness center.',
+    bedrooms: 1,
+    goods: ['Wi-Fi', 'Room service', 'Mini-bar', 'Safe', 'Spa access', 'Gym'],
+    host: {
+      name: 'Hanna Schmidt',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-8.jpg',
+      isPro: true
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/8.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/8-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/8-2.jpg'
+    ],
+    maxAdults: 2
+  },
+  {
+    id: 'dusseldorf-001',
+    title: 'Design apartment in Medienhafen',
+    type: 'apartment',
+    price: 110,
+    city: {
+      name: 'Dusseldorf',
+      location: {
+        latitude: 51.212134,
+        longitude: 6.764728,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 51.212134,
+      longitude: 6.764728,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.4,
+    description: 'Sleek designer apartment in Düsseldorf\'s trendy Medienhafen district. Close to restaurants and galleries.',
+    bedrooms: 1,
+    goods: ['Wi-Fi', 'Air conditioning', 'Elevator', 'Coffee machine', 'Heating'],
+    host: {
+      name: 'Felix Wagner',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-9.jpg',
+      isPro: false
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/9.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/9-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/9-2.jpg'
+    ],
+    maxAdults: 2
   }
 ];
 
 export const mockNearbyOffers: OffersResult[] = [
   {
-    id: 'nearby-1',
+    id: 'nearby-amsterdam-1',
     title: 'Quiet cozy house and picturesque that hides behind a a river',
     type: 'house',
     price: 132,
@@ -241,35 +390,83 @@ export const mockNearbyOffers: OffersResult[] = [
     previewImage: 'https://14.design.htmlacademy.pro/static/hotel/15.jpg'
   },
   {
-    id: 'nearby-2',
-    title: 'Canal View Prinsengracht',
+    id: 'nearby-paris-1',
+    title: 'Charming studio with Eiffel Tower view',
     type: 'apartment',
-    price: 80,
-    city: amsterdam,
+    price: 185,
+    city: paris,
     location: {
-      latitude: 52.3609553943508,
-      longitude: 4.85309666406198,
+      latitude: 48.857965,
+      longitude: 2.293987,
       zoom: 8
     },
     isFavorite: true,
-    isPremium: false,
-    rating: 3.8,
-    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/16.jpg'
+    isPremium: true,
+    rating: 4.8,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/10.jpg'
   },
   {
-    id: 'nearby-3',
-    title: 'Nice, cozy, warm big bed apartment',
+    id: 'nearby-cologne-1',
+    title: 'Riverside apartment near Cathedral',
     type: 'apartment',
-    price: 180,
-    city: amsterdam,
+    price: 89,
+    city: cologne,
     location: {
-      latitude: 52.3909553943508,
-      longitude: 4.929309666406198,
+      latitude: 50.938524,
+      longitude: 6.962128,
       zoom: 8
     },
     isFavorite: false,
     isPremium: false,
-    rating: 4.9,
-    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/17.jpg'
+    rating: 4.1,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/11.jpg'
+  },
+  {
+    id: 'nearby-brussels-1',
+    title: 'Cozy flat in historic center',
+    type: 'house',
+    price: 115,
+    city: brussels,
+    location: {
+      latitude: 50.845779,
+      longitude: 4.354829,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: false,
+    rating: 4.3,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/12.jpg'
+  },
+  {
+    id: 'nearby-hamburg-1',
+    title: 'Modern apartment near the port',
+    type: 'apartment',
+    price: 145,
+    city: hamburg,
+    location: {
+      latitude: 53.544836,
+      longitude: 9.986453,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.5,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/13.jpg'
+  },
+  {
+    id: 'nearby-dusseldorf-1',
+    title: 'Central city apartment',
+    type: 'apartment',
+    price: 98,
+    city: dusseldorf,
+    location: {
+      latitude: 51.218764,
+      longitude: 6.776489,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4.0,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/14.jpg'
   }
 ];

@@ -4,13 +4,13 @@ import { OffersResult } from '../types/offers';
 
 export default function useMap(
   mapRef: MutableRefObject<HTMLElement | null>,
-  city: OffersResult['city']
+  city: OffersResult['city'] | null | undefined
 ) {
   const [map, setMap] = useState<leaflet.Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
 
   useEffect(() => {
-    if (mapRef.current !== null && !isRenderedRef.current) {
+    if (mapRef.current !== null && !isRenderedRef.current && city) {
       const instance = leaflet.map(mapRef.current, {
         center: {
           lat: city.location.latitude,

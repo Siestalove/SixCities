@@ -1,13 +1,11 @@
-import { OffersResult } from '../types/offers';
 import FavoriteList from '../components/FavoritesList';
+import { useAppSelector } from '../hooks';
 
-type FavoritesPageProps = {
-  favorites: OffersResult[];
-}
 
-export default function FavoritesPage({ favorites }: FavoritesPageProps) {
+export default function FavoritesPage() {
 
-  const favoriteOffers = favorites.filter((offer) => offer.isFavorite === true);
+  const allOffers = useAppSelector((state) => state.offers);
+  const favoriteOffers = allOffers.filter((offer) => offer.isFavorite);
 
   return (
     <div className="page">

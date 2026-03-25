@@ -18,6 +18,8 @@ export default function Map({ city, points, selectedPointId }: MapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const map = useMap(mapRef, city);
 
+  const markerLayerRef = useRef<leaflet.LayerGroup | null>(null);
+
   const defaultCustomIcon = leaflet.icon({
     iconUrl: 'public/img/pin.svg',
     iconSize: [30, 40],
@@ -31,8 +33,17 @@ export default function Map({ city, points, selectedPointId }: MapProps) {
   });
 
   useEffect(() => {
+    if (map && city) {
+      map.setView([city.location.latitude, city.location.longitude], city.location.zoom);
+    }
+  }, [map, city]);
+
+  useEffect(() => {
     if (map) {
-      const markerLayer = leaflet.layerGroup().addTo(map);
+      if (markerLayerRef.current) {
+        map.removeLayer(markerLayerRef.current);
+      }
+      const markerLayer = leaflet.layerGroup();
       points.forEach((point) => {
         if (point.latitude && point.longitude) {
           leaflet
@@ -42,14 +53,13 @@ export default function Map({ city, points, selectedPointId }: MapProps) {
             }, {
               icon: point.id === selectedPointId ? currentCustomIcon : defaultCustomIcon,
             })
-            .addTo(map);
+            .addTo(markerLayer);
         }
       });
-      return () => {
-        markerLayer.remove();
-      };
+      markerLayer.addTo(map);
+      markerLayerRef.current = markerLayer;
     }
-  }, [currentCustomIcon, defaultCustomIcon, map, points, selectedPointId]);
+  }, [map, points, selectedPointId, defaultCustomIcon, currentCustomIcon]);
 
   return (
     <div
