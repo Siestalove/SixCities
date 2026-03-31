@@ -51,7 +51,7 @@ export default function Card({ offer, onMouseEnter, onMouseLeave, block }: CardP
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${Math.round(rating) * 20}%` }}></span>
+            <span style={{ width: `${(rating / 5) * 100}%` }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

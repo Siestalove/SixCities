@@ -150,6 +150,70 @@ export const mockOffers: OffersResult[] = [
     isPremium: false,
     rating: 4.4,
     previewImage: 'https://14.design.htmlacademy.pro/static/hotel/9.jpg'
+  },
+  {
+    id: 'paris-002',
+    title: 'Luxury apartment with Eiffel Tower view',
+    type: 'apartment',
+    price: 350,
+    city: paris,
+    location: {
+      latitude: 48.87992,
+      longitude: 2.374302,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.9,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/16.jpg'
+  },
+  {
+    id: 'paris-003',
+    title: 'Budget studio near Montmartre',
+    type: 'hotel',
+    price: 65,
+    city: paris,
+    location: {
+      latitude: 48.886123,
+      longitude: 2.343102,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 3.8,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/17.jpg'
+  },
+  {
+    id: 'paris-004',
+    title: 'Cozy apartment in Le Marais',
+    type: 'apartment',
+    price: 180,
+    city: paris,
+    location: {
+      latitude: 48.862000,
+      longitude: 2.364000,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: true,
+    rating: 4.5,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/18.jpg'
+  },
+  {
+    id: 'paris-005',
+    title: 'Design loft near Louvre Museum',
+    type: 'house',
+    price: 280,
+    city: paris,
+    location: {
+      latitude: 48.862500,
+      longitude: 2.337000,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.7,
+    previewImage: 'https://14.design.htmlacademy.pro/static/hotel/19.jpg'
   }
 ];
 
@@ -369,6 +433,149 @@ export const mocksOffersForId: OfferForId[] = [
       'https://14.design.htmlacademy.pro/static/hotel/9-2.jpg'
     ],
     maxAdults: 2
+  },
+  {
+    id: 'paris-002',
+    title: 'Luxury apartment with Eiffel Tower view',
+    type: 'apartment',
+    price: 350,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.858844,
+        longitude: 2.294351,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 48.858844,
+      longitude: 2.294351,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.9,
+    description: 'Stunning luxury apartment with direct view of the Eiffel Tower. Perfect for romantic getaways.',
+    bedrooms: 2,
+    goods: ['Wi-Fi', 'Air conditioning', 'Jacuzzi', 'Private terrace', 'Concierge', 'Parking'],
+    host: {
+      name: 'Pierre Dubois',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-10.jpg',
+      isPro: true
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/16.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/16-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/16-2.jpg'
+    ],
+    maxAdults: 4
+  },
+  {
+    id: 'paris-003',
+    title: 'Budget studio near Montmartre',
+    type: 'hotel',
+    price: 65,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.886123,
+        longitude: 2.343102,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 48.886123,
+      longitude: 2.343102,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: false,
+    rating: 3,
+    description: 'Affordable and cozy studio in the artistic Montmartre district. Close to Sacré-Cœur.',
+    bedrooms: 1,
+    goods: ['Wi-Fi', 'Heating', 'Basic kitchen', 'Shared laundry'],
+    host: {
+      name: 'Marie Lambert',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-11.jpg',
+      isPro: false
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/17.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/17-1.jpg'
+    ],
+    maxAdults: 2
+  },
+  {
+    id: 'paris-004',
+    title: 'Cozy apartment in Le Marais',
+    type: 'apartment',
+    price: 180,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.861422,
+        longitude: 2.363239,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 48.861422,
+      longitude: 2.363239,
+      zoom: 8
+    },
+    isFavorite: false,
+    isPremium: true,
+    rating: 4,
+    description: 'Charming apartment in the historic Le Marais district. Trendy shops and cafes at your doorstep.',
+    bedrooms: 1,
+    goods: ['Wi-Fi', 'Air conditioning', 'Coffee machine', 'Elevator', 'Smart TV'],
+    host: {
+      name: 'Jean Moreau',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-12.jpg',
+      isPro: true
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/18.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/18-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/18-2.jpg'
+    ],
+    maxAdults: 2
+  },
+  {
+    id: 'paris-005',
+    title: 'Design loft near Louvre Museum',
+    type: 'house',
+    price: 280,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 48.861942,
+        longitude: 2.336532,
+        zoom: 8
+      }
+    },
+    location: {
+      latitude: 48.861942,
+      longitude: 2.336532,
+      zoom: 8
+    },
+    isFavorite: true,
+    isPremium: true,
+    rating: 4.7,
+    description: 'Stylish designer loft just steps from the Louvre Museum. Modern amenities in historic setting.',
+    bedrooms: 2,
+    goods: ['Wi-Fi', 'Designer furniture', 'Fully equipped kitchen', 'Wine cellar', 'Home theater'],
+    host: {
+      name: 'Claire Rousseau',
+      avatarUrl: 'https://16.design.htmlacademy.com/static/host/avatar-13.jpg',
+      isPro: true
+    },
+    images: [
+      'https://14.design.htmlacademy.pro/static/hotel/19.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/19-1.jpg',
+      'https://14.design.htmlacademy.pro/static/hotel/19-2.jpg'
+    ],
+    maxAdults: 3
   }
 ];
 

@@ -1,18 +1,18 @@
 import {cities} from '../const';
 
 type CitiesListProps = {
-  CityName: string;
+  cityName: string;
   handleCityClick: (cityName: string) => void;
 }
 
-export default function CitiesList({CityName, handleCityClick} : CitiesListProps) {
+export default function CitiesList({cityName, handleCityClick} : CitiesListProps) {
   return(
     <ul className="locations__list tabs__list">
       {cities.map((city) => (
         <li className="locations__item" key={city}>
           <a
             className={`locations__item-link tabs__item ${
-              CityName === city ? 'tabs__item--active' : ''
+              cityName === city ? 'tabs__item--active' : ''
             }`}
             href="#"
             onClick={(evt) => {
