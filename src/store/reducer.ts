@@ -1,20 +1,29 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {setCity, setOffers, setError, setOffersLoadingStatus} from './action';
-import { OffersResultMass } from '../types/offers';
+import {setCity, setOffers, setError, setOffersLoadingStatus, setCurrentOffer, setNearbyOffers, setReviews, setOfferLoadingStatus} from './action';
+import { OfferForId, OffersResultMass } from '../types/offers';
+import { ReviewType } from '../types/reviews';
 
 
 type InitalState = {
   currentCity: string;
   offers: OffersResultMass;
+  currentOffer: OfferForId | null;
+  nearbyOffers: OffersResultMass;
+  reviews: ReviewType[];
   isLoading: boolean;
   error: string | null;
+  isOfferLoading: boolean;
 }
 
 const initialState: InitalState = {
   currentCity: 'Paris',
   offers: [],
+  currentOffer: null,
+  nearbyOffers: [],
+  reviews: [],
   isLoading: false,
   error: null,
+  isOfferLoading: false,
 };
 
 
@@ -31,6 +40,18 @@ const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(setOffersLoadingStatus, (state, action) => {
       state.isLoading = action.payload;
+    })
+    .addCase(setCurrentOffer, (state, action) => {
+      state.currentOffer = action.payload;
+    })
+    .addCase(setNearbyOffers, (state, action) => {
+      state.nearbyOffers = action.payload;
+    })
+    .addCase(setReviews, (state, action) => {
+      state.reviews = action.payload;
+    })
+    .addCase(setOfferLoadingStatus, (state, action) => {
+      state.isOfferLoading = action.payload;
     });
 });
 

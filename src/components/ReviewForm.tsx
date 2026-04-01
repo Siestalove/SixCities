@@ -1,8 +1,18 @@
-import { useState, ChangeEvent, Fragment } from 'react';
+import { useState, ChangeEvent, Fragment, FormEvent } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { postReviewAction } from '../api/api-actions';
 
-export default function ReviewForm() {
+type ReviewFormProps = {
+  offerId: string;
+};
+
+export default function ReviewForm({ offerId }: ReviewFormProps) {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const dispatch = useAppDispatch();
+  const error = useAppSelector((state) => state.error);
 
   const ratings = [1, 2, 3, 4, 5];
 
@@ -14,17 +24,26 @@ export default function ReviewForm() {
     setComment(evt.target.value);
   };
 
-  //   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
-  //     evt.preventDefault();
-  //     onSubmit({ rating, comment });
-  //     setRating(0);
-  //     setComment('');
-  //   };
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
 
-  const isSubmitDisabled = rating === 0 || comment.length < 50;
+    setIsSubmitting(true);
+
+    dispatch(postReviewAction({
+      id: offerId,
+      rating,
+      comment
+    })).finally(() => {
+      setRating(0);
+      setComment('');
+      setIsSubmitting(false);
+    });
+  };
+
+  const isSubmitDisabled = rating === 0 || comment.length < 50 || comment.length > 300 || isSubmitting;
 
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={handleSubmit}>
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
         {ratings.map((value) => (
@@ -37,6 +56,7 @@ export default function ReviewForm() {
               type="radio"
               checked={rating === value}
               onChange={handleRatingChange}
+              disabled={isSubmitting}
             />
             <label
               htmlFor={`${value}-stars`}
@@ -56,6 +76,7 @@ export default function ReviewForm() {
         placeholder="Tell how was your stay, what you like and what can be improved"
         value={comment}
         onChange={handleCommentChange}
+        disabled={isSubmitting}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -68,9 +89,14 @@ export default function ReviewForm() {
           type="submit"
           disabled={isSubmitDisabled}
         >
-          Submit
+          {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
+      {error && (
+        <div className="reviews__error" style={{ color: 'red', marginTop: '10px' }}>
+          {error}
+        </div>
+      )}
     </form>
   );
 }

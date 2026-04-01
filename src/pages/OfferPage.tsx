@@ -1,33 +1,51 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { OfferForId } from '../types/offers';
-import { mockReviews } from '../mocks/reviews';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { fetchOfferAction } from '../api/api-actions';
 import ReviewForm from '../components/ReviewForm';
 import ReviewsList from '../components/ReviewsList';
 import Map from '../components/Map';
 import OffersListNearBy from '../components/OffersListNearby';
+import Spinner from '../components/spinner/Spinner';
+import ErrorMessage from '../components/error-message/ErrorMessage';
+import { setCurrentOffer, setNearbyOffers, setReviews } from '../store/action';
 
 export default function OfferPage() {
-
   const { id } = useParams();
-  const [offer, setOffer] = useState<OfferForId | null>(null);
+  const dispatch = useAppDispatch();
 
-  const reviewsCount = mockReviews.length;
+  const offer = useAppSelector((state) => state.currentOffer);
+  const nearbyOffers = useAppSelector((state) => state.nearbyOffers);
+  const reviews = useAppSelector((state) => state.reviews);
+  const isLoading = useAppSelector((state) => state.isOfferLoading);
+  const error = useAppSelector((state) => state.error);
 
   useEffect(() => {
-    const foundOffer = mocksOffersForId.find((item) => item.id === id);
-    setOffer(foundOffer || null);
-  }, [id]);
+    if (id) {
+      dispatch(fetchOfferAction(id));
+    }
+    return () => {
+      dispatch(setCurrentOffer(null));
+      dispatch(setNearbyOffers([]));
+      dispatch(setReviews([]));
+    };
+  }, [dispatch, id]);
 
-  if (!offer) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return <Spinner />;
   }
 
-  // const handleReviewSubmit = (review: { rating: number; comment: string }) => {
-  //   console.log('New review:', review);
-  // };
+  if (error) {
+    return <ErrorMessage />;
+  }
 
-  const pointsForMap = mockNearbyOffers.map((nearby) => ({
+  if (!offer) {
+    return <div>Offer not found</div>;
+  }
+
+  const reviewsCount = reviews.length;
+
+  const pointsForMap = nearbyOffers.map((nearby) => ({
     id: nearby.id,
     latitude: nearby.location.latitude,
     longitude: nearby.location.longitude,
@@ -111,15 +129,12 @@ export default function OfferPage() {
                   <p className="offer__text">
                     {offer.description}
                   </p>
-                  <p className="offer__text">
-                    An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                  </p>
                 </div>
               </div>
               <section className="offer__reviews reviews">
                 <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviewsCount}</span></h2>
-                <ReviewsList reviews={mockReviews} />
-                <ReviewForm/>
+                <ReviewsList reviews={reviews} />
+                <ReviewForm offerId={offer.id} />
               </section>
             </div>
           </div>
@@ -134,7 +149,7 @@ export default function OfferPage() {
         <div className="container">
           <section className="near-places places">
             <h2 className="near-places__title">Other places in the neighbourhood</h2>
-            <OffersListNearBy offers={mockNearbyOffers} />
+            <OffersListNearBy offers={nearbyOffers} />
           </section>
         </div>
       </main>
