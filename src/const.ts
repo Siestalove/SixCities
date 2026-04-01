@@ -19,3 +19,5 @@ export enum SortType {
   PriceHighToLow = 'Price: high to low',
   TopRatedFirst = 'Top rated first',
 }
+
+export const TIMEOUT_SHOW_ERROR = 2000;

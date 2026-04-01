@@ -1,12 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { OfferForId } from '../types/offers';
-import { mocksOffersForId } from '../mocks/offers';
 import { mockReviews } from '../mocks/reviews';
 import ReviewForm from '../components/ReviewForm';
 import ReviewsList from '../components/ReviewsList';
 import Map from '../components/Map';
-import { mockNearbyOffers } from '../mocks/offers';
 import OffersListNearBy from '../components/OffersListNearby';
 
 export default function OfferPage() {

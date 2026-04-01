@@ -1,15 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import Header from './components/Header';
-import { useAppDispatch } from './hooks';
-import { useEffect } from 'react';
-import { setOffers } from './store/action';
-import { mockOffers } from './mocks/offers';
+import { useAppSelector } from './hooks';
+import LoadingPage from './pages/LoadingPage';
 
 export default function App() {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(setOffers(mockOffers));
-  }, [dispatch]);
+  const isDataLoading = useAppSelector((state) => state.isLoading);
+
+  if (isDataLoading) {
+    return (
+      <LoadingPage />
+    );
+  }
   return(
     <>
       <Header />

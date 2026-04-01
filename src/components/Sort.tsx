@@ -6,6 +6,15 @@ type SortProps = {
   onSortTypeChange: (sortType: SortType) => void;
 };
 
+const sortTypeDescriptions: Record<SortType, string> = {
+  [SortType.Popular]: 'Popular',
+  [SortType.PriceLowToHigh]: 'Price: low to high',
+  [SortType.PriceHighToLow]: 'Price: high to low',
+  [SortType.TopRatedFirst]: 'Top rated first',
+};
+
+const sortTypes = Object.values(SortType);
+
 export default function Sort({ currentSortType, onSortTypeChange }: SortProps) {
   const [isOpened, setIsOpened] = useState(false);
 
@@ -22,20 +31,20 @@ export default function Sort({ currentSortType, onSortTypeChange }: SortProps) {
     <form className="places__sorting" action="#" method="get">
       <span className="places__sorting-caption">Sort by</span>
       <span className="places__sorting-type" tabIndex={0} onClick={handleToggleOpen}>
-        {currentSortType}
+        {sortTypeDescriptions[currentSortType]}
         <svg className="places__sorting-arrow" width="7" height="4">
           <use xlinkHref="#icon-arrow-select"></use>
         </svg>
       </span>
       <ul className={`places__options places__options--custom ${isOpened ? 'places__options--opened' : ''}`}>
-        {Object.values(SortType).map((type) => (
+        {sortTypes.map((type) => (
           <li
             key={type}
-            className={`places__option ${ currentSortType === type ? 'places__option--active' : ''}`}
+            className={`places__option ${currentSortType === type ? 'places__option--active' : ''}`}
             tabIndex={0}
-            onClick={() => handleSortOptionClick(type as SortType)}
+            onClick={() => handleSortOptionClick(type)}
           >
-            {type}
+            {sortTypeDescriptions[type]}
           </li>
         ))}
       </ul>

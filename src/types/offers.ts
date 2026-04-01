@@ -22,8 +22,10 @@ export type baseOffer = {
 }
 
 export type OffersResult = baseOffer & {
-    previewImage: string;
+  previewImage: string;
 }
+
+export type OffersResultMass = OffersResult[];
 
 export type OfferForId = baseOffer & {
     description: string;
