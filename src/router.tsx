@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from './const';
+import { AppRoute } from './const';
 import MainPage from './pages/MainPage';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import FavoritesPage from './pages/FavoritesPage';
 import OfferPage from './pages/OfferPage';
 import NoFoundPage from './pages/NoFoundPage';
@@ -25,9 +25,7 @@ export const createAppRouter = () => createBrowserRouter([
       {
         path: AppRoute.Favorite,
         element:
-            <PrivateRoute
-              authorizationStatus={AuthorizationStatus.NoAuth}
-            >
+            <PrivateRoute>
               <FavoritesPage />
             </PrivateRoute>
       },

@@ -5,11 +5,11 @@ import {Provider} from 'react-redux';
 import { createAppRouter } from './router';
 import {store} from './store';
 import ErrorMessage from './components/error-message/ErrorMessage';
-import {fetchOffersAction} from './api/api-actions';
+import {checkAuthAction} from './api/api-actions';
+
+store.dispatch(checkAuthAction());
 
 const router = createAppRouter();
-
-store.dispatch(fetchOffersAction());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -1,0 +1,20 @@
+.login__input.error {
+  border-color: #ff0000;
+  background-color: #fff8f8;
+}
+
+.login__error {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.server-error {
+  background-color: #ffeeee;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+}

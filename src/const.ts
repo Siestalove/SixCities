@@ -2,7 +2,7 @@ export enum AppRoute {
   Main = '/',
   Login = '/login',
   Favorite = '/favorite',
-  Offer = '/offer/:id'
+  Offer = '/offer/:id',
 }
 
 export enum AuthorizationStatus {
@@ -21,3 +21,9 @@ export enum SortType {
 }
 
 export const TIMEOUT_SHOW_ERROR = 2000;
+
+export enum APIRoute {
+  Offers = '/offers',
+  Login = '/login',
+  Logout = '/logout',
+}

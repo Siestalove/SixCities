@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Map from '../components/Map';
 import OffersList from '../components/OffersList';
 import CitiesList from '../components/CitiesList';
@@ -7,6 +7,7 @@ import {useAppDispatch, useAppSelector} from '../hooks';
 import { setCity } from '../store/action';
 import { SortType } from '../const';
 import { OffersResult } from '../types/offers';
+import { fetchOffersAction } from '../api/api-actions';
 
 
 export default function MainPage() {
@@ -15,6 +16,13 @@ export default function MainPage() {
 
   const currentCityName = useAppSelector((state) => state.currentCity);
   const allOffers = useAppSelector((state) => state.offers);
+  const isLoading = useAppSelector((state) => state.isLoading);
+
+  useEffect(() => {
+    if (allOffers.length === 0 && !isLoading) {
+      dispatch(fetchOffersAction());
+    }
+  }, [dispatch, allOffers.length, isLoading]);
 
   const [activeOfferId, setActiveOfferId] = useState<string>('');
   const [activeSortType, setActiveSortType] = useState<SortType>(SortType.Popular);
