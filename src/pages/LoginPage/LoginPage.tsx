@@ -109,7 +109,7 @@ export default function LoginPage() {
                 <input ref={passwordRef} className={`login__input form__input ${passwordError ? 'error' : ''}`} type="password" name="password" placeholder="Password" required onChange={handlePasswordChange} />
                 {passwordError && <div className="login__error">{passwordError}</div>}
               </div>
-              <button className="login__submit form__submit button" type="submit">Sign in</button>
+              <button className="login__submit form__submit button" type="submit" name = "sign-in-button">Sign in</button>
             </form>
           </section>
           <section className="locations locations--login locations--current">

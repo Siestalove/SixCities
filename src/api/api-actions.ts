@@ -79,10 +79,11 @@ export const postReviewAction = createAsyncThunk<
     state: State;
     extra: AxiosInstance;
   }
->('postReview', async ({ id, rating, comment }, { dispatch, extra: api }) => {
+>('postReview', async ({ id, rating, comment }, { dispatch, getState, extra: api }) => {
   try {
-    const { data } = await api.post<ReviewType[]>(`/comments/${id}`, { comment, rating });
-    dispatch(setReviews(data));
+    const { data } = await api.post<ReviewType>(`/comments/${id}`, { comment, rating });
+    const currentReviews = getState().reviews;
+    dispatch(setReviews([...currentReviews, data]));
     dispatch(setError(null));
   } catch (error) {
     dispatch(setError('Failed to post review. Please try again.'));

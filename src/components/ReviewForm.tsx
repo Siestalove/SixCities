@@ -1,6 +1,7 @@
 import { useState, ChangeEvent, Fragment, FormEvent } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { postReviewAction } from '../api/api-actions';
+import { AuthorizationStatus } from '../const';
 
 type ReviewFormProps = {
   offerId: string;
@@ -15,6 +16,8 @@ export default function ReviewForm({ offerId }: ReviewFormProps) {
   const error = useAppSelector((state) => state.error);
 
   const ratings = [1, 2, 3, 4, 5];
+
+  const authorizationStatus = useAppSelector((state) => state.authorizationStatus);
 
   const handleRatingChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setRating(Number(evt.target.value));
@@ -41,6 +44,19 @@ export default function ReviewForm({ offerId }: ReviewFormProps) {
   };
 
   const isSubmitDisabled = rating === 0 || comment.length < 50 || comment.length > 300 || isSubmitting;
+
+  if (authorizationStatus !== AuthorizationStatus.Auth) {
+    return (
+      <div className="reviews__form-wrapper">
+        <p className="reviews__login-message">
+          Для написания отзыва пожалуйста{' '}
+          <a href="/login" className="reviews__login-link">
+            авторизуйтесь
+          </a>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form className="reviews__form form" action="#" method="post" onSubmit={handleSubmit}>
