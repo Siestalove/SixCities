@@ -8,7 +8,8 @@
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
     "test": "npm run e2e",
-    "e2e": "npx playwright install chromium && npx playwright test"
+    "e2e": "npx playwright install chromium && npx playwright test",
+    "pretest": "npm run start & npx wait-on http://localhost:5173"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.9.7",
@@ -48,7 +49,8 @@
     "jsdom": "22.1.0",
     "typescript": "5.2.2",
     "vite": "4.4.11",
-    "vitest": "0.34.6"
+    "vitest": "0.34.6",
+    "wait-on": "^9.0.4"
   },
   "browserslist": {
     "production": [
