@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx",
     "preview": "vite preview",
-    "test": "vitest --passWithNoTests",
+    "test": "npm run e2e",
     "e2e": "npx playwright test"
   },
   "dependencies": {
