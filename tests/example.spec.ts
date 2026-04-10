@@ -3,7 +3,7 @@ import { AuthPage } from './authPage';
 import { SortPage } from './sortPage';
 import { CommentPage } from './commentPage';
 
-test.only('Аутентификация пользователя', async ({ page }) => {
+test('Аутентификация пользователя', async ({ page }) => {
   const authPage = new AuthPage(page);
   await authPage.load();
 
@@ -16,7 +16,7 @@ test.only('Аутентификация пользователя', async ({ page
   await expect(page).toHaveURL('http://localhost:5173/');
 });
 
-test.only('Работа сортировки предложений', async ({ page }) => {
+test('Работа сортировки предложений', async ({ page }) => {
   const sortPage = new SortPage(page);
   await sortPage.load();
 
@@ -35,7 +35,7 @@ test.only('Работа сортировки предложений', async ({ p
   expect(isSortedByTopRated).toBe(true);
 });
 
-test.only('Работа отправки комментария', async ({ page }) => {
+test('Работа отправки комментария', async ({ page }) => {
 
   const commentPage = new CommentPage(page);
   await commentPage.load();
